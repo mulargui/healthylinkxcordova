@@ -168,6 +168,21 @@ function loadTaxonomyCodes() {
 	});
 }
 
+function getGeoLocation() {
+	navigator.geolocation.getCurrentPosition(
+		function (position) {
+			showMessage('Latitude: ' + position.coords.latitude + '\n' +
+				'Longitude: ' + position.coords.longitude + '\n' +
+				'Altitude: ' + position.coords.altitude + '\n' +
+				'Accuracy: ' + position.coords.accuracy + '\n' );
+		},		
+		function (error) {
+			showMessage('GeoLocation error. \nCode: ' + error.code + '\nMessage: ' + error.message);
+		}, 
+		{maximumAge: Infinity, timeout: 10000, enableHighAccuracy: true}
+	);
+}
+
 function showMessage(text) {
 	$('#messageText').text(text);
 	$('#MessageArea').show();

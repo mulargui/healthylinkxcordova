@@ -27,7 +27,8 @@ var app = {
     },
     // deviceready Event Handler
     onDeviceReady: function() {
-		loadTaxonomyCodes(); 
+		//loadTaxonomyCodes(); 
+		getGeoLocation();
     }
 };
 
